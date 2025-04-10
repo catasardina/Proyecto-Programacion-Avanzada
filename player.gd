@@ -1,0 +1,18 @@
+extends CharacterBody2D
+
+
+func _physics_process(delta):
+	var direction = Input.get_vector("move_left","move_right","move_up","move_down")
+	velocity = direction * 600
+	move_and_slide()
+	look_at_mouse()
+	if Input.is_action_just_pressed("shoot"):
+		get_node("Gun").shoot()
+	if velocity.length() > 0.0:
+		get_node("HappyBoo").play_walk_animation()
+	else:
+		get_node("HappyBoo").play_idle_animation()
+
+func look_at_mouse():
+	var mouse_pos = get_global_mouse_position()
+	get_node("Gun/WeaponPivot").look_at(mouse_pos)
