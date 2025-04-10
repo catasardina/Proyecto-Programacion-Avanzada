@@ -1,7 +1,11 @@
-res://player.tscn
+res://enemy_spawner.gd
 res://svgame.tscn
+res://enemy_spawner.tscn
+res://player.tscn
 res://pine_tree.tscn
 res://mob.tscn
 res://gun.tscn
 res://bullet.tscn
+res://svgame.gd
 res://mob.gd
+res://player.gd
