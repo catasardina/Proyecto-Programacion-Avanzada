@@ -74,8 +74,8 @@ Settings/Show_Tooltips=true
 
 [application]
 
-config/name="Test Game"
-run/main_scene="uid://dcqluj7mfg01d"
+config/name="Proyecto-programacion-avanzada-main"
+run/main_scene="uid://ckbbfgfrq30sp"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://icon.png"
 

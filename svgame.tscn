@@ -1,18 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcqluj7mfg01d"]
+[gd_scene load_steps=4 format=3 uid="uid://dcqluj7mfg01d"]
 
 [ext_resource type="PackedScene" uid="uid://bdu6y60w2q3lk" path="res://player.tscn" id="1_kgt6l"]
-[ext_resource type="Script" uid="uid://brmpap0dham6i" path="res://svgame.gd" id="1_tg0xe"]
 [ext_resource type="PackedScene" uid="uid://cm2huotep3byu" path="res://pine_tree.tscn" id="2_tg0xe"]
-
-[sub_resource type="Curve2D" id="Curve2D_bjmfr"]
-_data = {
-"points": PackedVector2Array(0, 0, 0, 0, -68, -98, 0, 0, 0, 0, 2047, -97, 0, 0, 0, 0, 2052, 1188, 0, 0, 0, 0, -70, 1192, 0, 0, 0, 0, -68, -98)
-}
-point_count = 5
+[ext_resource type="PackedScene" uid="uid://6pq53edlbkv5" path="res://mob.tscn" id="3_tg0xe"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
-script = ExtResource("1_tg0xe")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = -30
@@ -23,6 +16,15 @@ offset_bottom = 1088.0
 
 [node name="Player" parent="." instance=ExtResource("1_kgt6l")]
 position = Vector2(1046, 652)
+
+[node name="Mob" parent="." instance=ExtResource("3_tg0xe")]
+position = Vector2(533, 414)
+
+[node name="Mob2" parent="." instance=ExtResource("3_tg0xe")]
+position = Vector2(998, 345)
+
+[node name="Mob3" parent="." instance=ExtResource("3_tg0xe")]
+position = Vector2(319, 916)
 
 [node name="PineTree" parent="." instance=ExtResource("2_tg0xe")]
 position = Vector2(408, 281)
@@ -44,16 +46,3 @@ position = Vector2(1400, 559)
 
 [node name="PineTree7" parent="." instance=ExtResource("2_tg0xe")]
 position = Vector2(1311, 929)
-
-[node name="Path2D" type="Path2D" parent="."]
-curve = SubResource("Curve2D_bjmfr")
-
-[node name="PathFollow2D" type="PathFollow2D" parent="Path2D"]
-unique_name_in_owner = true
-position = Vector2(-68, -98)
-rotation = 0.000472813
-
-[node name="Timer" type="Timer" parent="."]
-autostart = true
-
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

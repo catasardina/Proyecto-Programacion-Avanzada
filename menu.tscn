@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=3 uid="uid://ckbbfgfrq30sp"]
+
+[ext_resource type="Texture2D" uid="uid://bcknecosj581f" path="res://addons/c3e0093c-7a14-4904-83af-b9c722dfa83d.png" id="1_lti8b"]
+[ext_resource type="Script" uid="uid://bu15aw6jsk4n4" path="res://menu.gd" id="2_ouk20"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
+bg_color = Color(0, 0.2, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
+bg_color = Color(0, 0.2, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
+bg_color = Color(0, 0.2, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
+bg_color = Color(0, 0.2, 0, 0.8)
+
+[node name="MENU" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_lti8b")
+expand_mode = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -732.0
+offset_top = -217.0
+offset_right = -71.0
+offset_bottom = 251.0
+grow_horizontal = 0
+grow_vertical = 2
+theme_override_constants/separation = 28
+
+[node name="PLAY" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
+text = "JUGAR
+"
+script = ExtResource("2_ouk20")
+
+[node name="MULTI" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_lti8b")
+text = "MULTIJUGADOR"
+
+[node name="OP" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
+text = "OPCIONES"
+
+[node name="EXIT" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
+text = "ESCAPE"
+
+[connection signal="pressed" from="VBoxContainer/PLAY" to="VBoxContainer/PLAY" method="_on_pressed"]
+[connection signal="pressed" from="VBoxContainer/PLAY" to="VBoxContainer/EXIT" method="_on_play_pressed"]
+[connection signal="pressed" from="VBoxContainer/OP" to="VBoxContainer/PLAY" method="_on_op_pressed"]
+[connection signal="pressed" from="VBoxContainer/OP" to="VBoxContainer/EXIT" method="_on_op_pressed"]
+[connection signal="pressed" from="VBoxContainer/EXIT" to="VBoxContainer/PLAY" method="_on_exit_pressed"]
+[connection signal="pressed" from="VBoxContainer/EXIT" to="VBoxContainer/EXIT" method="_on_pressed"]
