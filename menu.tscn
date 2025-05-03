@@ -1,7 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://ckbbfgfrq30sp"]
+[gd_scene load_steps=9 format=3 uid="uid://ckbbfgfrq30sp"]
 
 [ext_resource type="Texture2D" uid="uid://bcknecosj581f" path="res://addons/c3e0093c-7a14-4904-83af-b9c722dfa83d.png" id="1_lti8b"]
 [ext_resource type="Script" uid="uid://bu15aw6jsk4n4" path="res://menu.gd" id="2_ouk20"]
+[ext_resource type="PackedScene" uid="uid://dp3f6pcqev54l" path="res://songs/bocina_principal.tscn" id="3_mae5d"]
+[ext_resource type="AudioStream" uid="uid://cb4kdt01je4jk" path="res://songs/ObservingTheStar.ogg" id="4_4hy44"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
 bg_color = Color(0, 0.2, 0, 1)
@@ -30,6 +32,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureRect" type="TextureRect" parent="."]
 layout_mode = 1
@@ -44,14 +47,10 @@ expand_mode = 1
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -732.0
-offset_top = -217.0
-offset_right = -71.0
-offset_bottom = 251.0
+anchor_left = 0.61875
+anchor_top = 0.299074
+anchor_right = 0.963021
+anchor_bottom = 0.732407
 grow_horizontal = 0
 grow_vertical = 2
 theme_override_constants/separation = 28
@@ -78,9 +77,14 @@ text = "OPCIONES"
 
 [node name="EXIT" type="Button" parent="VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 15
+mouse_filter = 1
 theme_override_font_sizes/font_size = 70
 theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
 text = "ESCAPE"
+
+[node name="BocinaPrincipal" parent="." instance=ExtResource("3_mae5d")]
+stream = ExtResource("4_4hy44")
 
 [connection signal="pressed" from="VBoxContainer/PLAY" to="VBoxContainer/PLAY" method="_on_pressed"]
 [connection signal="pressed" from="VBoxContainer/PLAY" to="VBoxContainer/EXIT" method="_on_play_pressed"]

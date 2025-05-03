@@ -1,0 +1,48 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsk2gbkj4yplw"]
+
+[ext_resource type="Script" uid="uid://bfyuxmilx6xtl" path="res://PAUSA.gd" id="1_45vjg"]
+[ext_resource type="PackedScene" uid="uid://dp3f6pcqev54l" path="res://songs/bocina_principal.tscn" id="2_aq7p1"]
+
+[node name="pause" type="CanvasLayer"]
+process_mode = 3
+script = ExtResource("1_45vjg")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.27451)
+
+[node name="Label" type="Label" parent="."]
+visible = false
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 150
+text = "PAUSE"
+
+[node name="Salir" type="Button" parent="."]
+visible = false
+offset_left = 1396.0
+offset_top = 467.0
+offset_right = 1654.0
+offset_bottom = 612.0
+theme_override_font_sizes/font_size = 100
+text = "Salir"
+
+[node name="opcion" type="Button" parent="."]
+visible = false
+offset_right = 8.0
+offset_bottom = 8.0
+
+[node name="BocinaPrincipal" parent="." instance=ExtResource("2_aq7p1")]
+
+[connection signal="pressed" from="Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="opcion" to="." method="_on_opcion_pressed"]

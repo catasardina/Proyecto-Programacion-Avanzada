@@ -1,10 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://mlgv1nxefygm"]
+[gd_scene load_steps=9 format=3 uid="uid://mlgv1nxefygm"]
 
-[ext_resource type="Texture2D" uid="uid://cr7tudencd3a5" path="res://addons/c3e0093c-7a14-4904-83af-b9c722dfa83d.png" id="1_fwlhr"]
+[ext_resource type="Texture2D" uid="uid://bcknecosj581f" path="res://addons/c3e0093c-7a14-4904-83af-b9c722dfa83d.png" id="1_fwlhr"]
 [ext_resource type="Script" uid="uid://sfalnqy0qr6i" path="res://opcion.gd" id="2_fwlhr"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
-bg_color = Color(0, 0.2, 0, 1)
+[ext_resource type="PackedScene" uid="uid://dt1s3iauvikfq" path="res://sonido.tscn" id="3_hgpht"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
 bg_color = Color(0, 0.2, 0, 1)
@@ -12,8 +10,14 @@ bg_color = Color(0, 0.2, 0, 1)
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mae5d"]
 bg_color = Color(0, 0.2, 0, 1)
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rd5je"]
+bg_color = Color(0, 0.2, 0, 1)
+
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4hy44"]
 bg_color = Color(0, 0.2, 0, 0.8)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ouk20"]
+bg_color = Color(0, 0.2, 0, 1)
 
 [node name="opcion" type="Control"]
 layout_mode = 3
@@ -42,45 +46,82 @@ grow_vertical = 2
 texture = ExtResource("1_fwlhr")
 expand_mode = 1
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 1.0
-anchor_top = 0.5
-anchor_right = 1.0
-anchor_bottom = 0.5
-offset_left = -743.0
-offset_top = -217.0
-offset_right = -71.0
-offset_bottom = 251.0
-grow_horizontal = 0
-grow_vertical = 2
-theme_override_constants/separation = 28
-
-[node name="volumen" type="Button" parent="VBoxContainer"]
+[node name="RESOLUCION" type="Button" parent="TextureRect"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 60
-theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
-text = "VOLUMEN"
-
-[node name="RESOLUCION" type="Button" parent="VBoxContainer"]
-layout_mode = 2
+offset_left = 1141.0
+offset_top = 50.0
+offset_right = 1813.0
+offset_bottom = 133.0
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_lti8b")
 text = "RESOLUCION"
 
-[node name="PANTALLA COMPLETA" type="Button" parent="VBoxContainer"]
+[node name="PANTALLA COMPLETA" type="Button" parent="TextureRect"]
 layout_mode = 2
+offset_left = 106.0
+offset_top = 64.0
+offset_right = 778.0
+offset_bottom = 147.0
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
 text = "PANTALLA COMPLETA"
 
-[node name="ATRAS" type="Button" parent="VBoxContainer"]
+[node name="CanvasLayer" type="CanvasLayer" parent="TextureRect/PANTALLA COMPLETA"]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="TextureRect/PANTALLA COMPLETA/CanvasLayer"]
+offset_left = 106.0
+offset_top = 148.0
+offset_right = 774.0
+offset_bottom = 344.0
+
+[node name="FulleScream" type="Button" parent="TextureRect/PANTALLA COMPLETA/CanvasLayer/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_rd5je")
+text = "PANTALLA COMPLETA"
+
+[node name="ventana" type="Button" parent="TextureRect/PANTALLA COMPLETA/CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_rd5je")
+text = "VENTANA"
+
+[node name="ATRAS" type="Button" parent="TextureRect"]
+layout_mode = 2
+offset_left = 577.0
+offset_top = 556.0
+offset_right = 1249.0
+offset_bottom = 639.0
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
 text = "ATRAS"
 
-[connection signal="pressed" from="VBoxContainer/volumen" to="." method="_on_volumen_pressed"]
-[connection signal="pressed" from="VBoxContainer/volumen" to="VBoxContainer/ATRAS" method="_on_play_pressed"]
-[connection signal="pressed" from="VBoxContainer/ATRAS" to="." method="_on_atras_pressed"]
+[node name="volumen2" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.336
+anchor_top = 0.645
+anchor_right = 0.615
+anchor_bottom = 0.741
+offset_left = -0.120056
+offset_top = 0.399963
+offset_right = 0.199951
+offset_bottom = -0.28009
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="volumen" type="Label" parent="volumen2"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
+text = "VOLUMEN"
+horizontal_alignment = 1
+justification_flags = 0
+
+[node name="sonido" parent="volumen2" instance=ExtResource("3_hgpht")]
+layout_mode = 2
+bus_name = "Master"
+
+[connection signal="pressed" from="TextureRect/PANTALLA COMPLETA" to="." method="_on_pantalla_completa_pressed"]
+[connection signal="pressed" from="TextureRect/ATRAS" to="." method="_on_atras_pressed"]
