@@ -1,5 +1,4 @@
 res://player.tscn
 res://svgame.tscn
 res://mob.tscn
-res://player.gd
-res://svgame.gd
+res://menu.tscn

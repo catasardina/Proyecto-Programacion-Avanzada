@@ -70,3 +70,4 @@ autostart = true
 [node name="pause" parent="." instance=ExtResource("5_uce60")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]
