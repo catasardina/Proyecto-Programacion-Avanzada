@@ -1,3 +1,4 @@
+class_name Player
 extends CharacterBody2D
 
 signal health_depleted
@@ -28,7 +29,7 @@ func _physics_process(delta):
 	var overlapping_mobs = %HurtBox.get_overlapping_bodies()
 	if overlapping_mobs.size() > 0:
 		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
-		%ProgressBar.value = health
+		updateBar()
 		if health <= 0.0:
 			health_depleted.emit()
 	
@@ -36,8 +37,11 @@ func _physics_process(delta):
 func _on_timer_timeout():
 	if current_state == PlayerState.BULLET_HELL:
 		health += 5
-		%ProgressBar.value = health
+		updateBar()
 		
+func updateBar():
+	%ProgressBar.value = health
+	
 func _process(delta):
 	if health <= bullet_hell_trigger and current_state != PlayerState.BULLET_HELL:
 		request_bullet_hell.emit()

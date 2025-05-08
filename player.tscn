@@ -11,14 +11,14 @@ radius = 29.21
 radius = 36.3456
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i3pqv"]
-bg_color = Color(0.303233, 0.303233, 0.303233, 1)
+bg_color = Color(0.0313726, 0.788235, 0, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hqtel"]
-bg_color = Color(0.0294415, 0.789014, 7.70092e-07, 1)
+bg_color = Color(0.301961, 0.301961, 0.301961, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -55,4 +55,5 @@ offset_bottom = -103.0
 theme_override_styles/background = SubResource("StyleBoxFlat_i3pqv")
 theme_override_styles/fill = SubResource("StyleBoxFlat_hqtel")
 value = 100.0
+fill_mode = 1
 show_percentage = false

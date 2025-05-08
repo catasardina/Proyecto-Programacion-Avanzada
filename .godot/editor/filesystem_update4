@@ -2,3 +2,13 @@ res://player.tscn
 res://svgame.tscn
 res://mob.tscn
 res://menu.tscn
+res://bulletEnemy.gd
+res://player.gd
+res://bullet.tscn
+res://pause.tscn
+res://opcion.tscn
+res://opcion.gd
+res://bulletEnemy.tscn
+res://bullet.gd
+res://mob.gd
+res://gun.gd
