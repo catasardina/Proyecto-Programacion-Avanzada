@@ -8,7 +8,7 @@ const enemy_bullet_scene = preload("res://bullet.tscn")
 var shoot_timer := 0.0
 var shoot_interval := 0.5
 
-@onready var player = get_node("/root/Game/Player")
+var player: CharacterBody2D = null
 	
 var bullet_hell_mode = false
 
@@ -21,10 +21,14 @@ func _ready():
 	%Slime.play_walk()
 	
 func _physics_process(delta):
+	if player == null:
+		return
+		
 	if not bullet_hell_mode:
 		var direction = global_position.direction_to(player.global_position)
 		velocity = direction * 300.0
 		move_and_slide()
+		
 	else:
 		# Calcular el vector desde el jugador al mob
 		var to_mob = global_position - player.global_position
