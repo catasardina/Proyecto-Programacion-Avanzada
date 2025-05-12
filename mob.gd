@@ -3,6 +3,11 @@ extends CharacterBody2D
 
 var health = 3
 
+
+const enemy_bullet_scene = preload("res://bullet.tscn")
+var shoot_timer := 0.0
+var shoot_interval := 0.5
+
 @onready var player = get_node("/root/Game/Player")
 	
 var bullet_hell_mode = false
@@ -43,9 +48,31 @@ func _physics_process(delta):
 			velocity = tangent * speed
 			move_and_slide()
 		
+		shoot_timer += delta
+		if shoot_timer >= shoot_interval:
+			shoot_timer = 0.0
+			shoot_radial_pattern()
+		
 
 func take_damage():
 	health -= 1
 	%Slime.play_hurt()
 	if health == 0:
 		queue_free()
+		
+func shoot_radial_pattern():
+	var num_bullets = 6
+	var pattern_angle = randf() * TAU # Ángulo inicial aleatorio para variación
+	
+	for i in range(num_bullets):
+		var angle = pattern_angle + (TAU / num_bullets) * i
+		var dir = Vector2(cos(angle), sin(angle))
+		
+		var bullet = enemy_bullet_scene.instantiate()
+		bullet.global_position = global_position
+		bullet.direction = dir
+		bullet.speed = 300  # Velocidad aleatoria para variedad
+		bullet.is_enemy_bullet = true
+		bullet.shooter = self
+		bullet.get_node("Projectile").modulate = Color("#28BDA6")
+		get_tree().current_scene.add_child(bullet)
