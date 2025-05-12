@@ -2,7 +2,7 @@ class_name Mob
 extends CharacterBody2D
 
 var health = 3
-
+signal death
 
 const enemy_bullet_scene = preload("res://bullet.tscn")
 var shoot_timer := 0.0
@@ -59,9 +59,10 @@ func take_damage():
 	%Slime.play_hurt()
 	if health == 0:
 		queue_free()
+		death.emit()
 		
 func shoot_radial_pattern():
-	var num_bullets = 6
+	var num_bullets = 4
 	var pattern_angle = randf() * TAU # Ángulo inicial aleatorio para variación
 	
 	for i in range(num_bullets):

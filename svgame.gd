@@ -1,6 +1,7 @@
 extends Node2D
 
 var is_bullet_hell = false
+var num_mob = 0
 
 func _ready() -> void:
 	var player = get_node("Player")
@@ -25,12 +26,17 @@ func _on_exit_bullet_hell():
 			child.bullet_hell_mode = false
 	
 func spawn_mob():
-	var new_mob = preload("res://mob.tscn").instantiate()
-	%PathFollow2D.progress_ratio = randf()
-	new_mob.global_position = %PathFollow2D.global_position
-	add_child(new_mob)
+	if(num_mob < 10):
+		var new_mob = preload("res://mob.tscn").instantiate()
+		new_mob.connect("death", Callable(self, "mob_death"))
+		%PathFollow2D.progress_ratio = randf()
+		new_mob.global_position = %PathFollow2D.global_position
+		add_child(new_mob)
+		num_mob += 1
 
-
+func mob_death():
+	num_mob -= 1
+	
 func _on_timer_timeout():
 	if not is_bullet_hell:
 		spawn_mob()
