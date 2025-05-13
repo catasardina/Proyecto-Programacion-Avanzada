@@ -7,7 +7,7 @@ func _ready() -> void:
 	var player = get_node("Player")
 	player.connect("request_bullet_hell", Callable(self, "_on_enter_bullet_hell"))
 	player.connect("request_bullet_hell_end", Callable(self, "_on_exit_bullet_hell"))
-	
+	player.connect("health_depleted", Callable(self, "_on_player_health_depleted"))
 		#asigna el player a todos los mobs existentes ya colocados en el editor desde antes
 	for child in get_children():
 		if child is Mob:
@@ -53,3 +53,20 @@ func mob_death():
 func _on_timer_timeout():
 	if not is_bullet_hell:
 		spawn_mob()
+
+
+func _on_player_health_depleted():
+	var scene = preload("res://GameOver.tscn")
+	var game_over = scene.instantiate()
+
+	var ui_layer = CanvasLayer.new()
+	ui_layer.layer = 1
+	ui_layer.add_child(game_over)
+
+	add_child(ui_layer)
+
+	
+	game_over.process_mode = Node.PROCESS_MODE_WHEN_PAUSED
+	
+	await get_tree().create_timer(0.01).timeout
+	get_tree().paused = true

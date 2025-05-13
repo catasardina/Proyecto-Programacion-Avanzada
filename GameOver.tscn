@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://nx8nf46poxnr"]
+
+[ext_resource type="Script" uid="uid://iclmg1o0yleg" path="res://game_over.gd" id="1_40baj"]
+[ext_resource type="FontFile" uid="uid://cjj7cfw4lp3ck" path="res://28 Days Later.ttf" id="2_a1htc"]
+
+[node name="GameOver" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_40baj")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.772549)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.5
+offset_top = -114.0
+offset_right = 220.5
+offset_bottom = 114.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("2_a1htc")
+theme_override_font_sizes/font_size = 100
+text = "Game Over"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Button" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Reintentar"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+text = "Salir"

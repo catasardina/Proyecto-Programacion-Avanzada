@@ -30,8 +30,8 @@ func _physics_process(delta):
 	if overlapping_mobs.size() > 0:
 		health -= DAMAGE_RATE * overlapping_mobs.size() * delta
 		updateBar()
-		if health <= 0.0:
-			health_depleted.emit()
+	if health <= 0.0:
+		health_depleted.emit()
 	
 		
 func _on_timer_timeout():
