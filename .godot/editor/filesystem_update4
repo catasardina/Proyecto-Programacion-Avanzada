@@ -1,11 +1,8 @@
 res://player.tscn
 res://mob.tscn
 res://menu.tscn
-res://levels/Level1.tscn
-res://levels/Level2.tscn
 res://svgame.tscn
-res://game_over.gd
 res://GameOver.tscn
-res://player.gd
 res://svgame.gd
-res://PAUSA.gd
+res://VictoryScreen.tscn
+res://victory_screen.gd

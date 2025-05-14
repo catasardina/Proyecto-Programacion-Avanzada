@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=4 uid="uid://dcqluj7mfg01d"]
+[gd_scene load_steps=14 format=4 uid="uid://dcqluj7mfg01d"]
 
 [ext_resource type="Script" uid="uid://brmpap0dham6i" path="res://svgame.gd" id="1_bjmfr"]
 [ext_resource type="PackedScene" uid="uid://bdu6y60w2q3lk" path="res://player.tscn" id="1_kgt6l"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://bsk2gbkj4yplw" path="res://pause.tscn" id="5_uce60"]
 [ext_resource type="Texture2D" uid="uid://du7kwfi15lkuw" path="res://tiles/fantasy_ [version 2.0]/fantasy_ [version 2.0]/taiga_/taiga_.png" id="6_6r4s4"]
 [ext_resource type="Texture2D" uid="uid://f83wgfq4xw1e" path="res://tiles/fantasy_ [version 2.0]/fantasy_ [version 2.0]/taiga_/taiga_ [resources].png" id="7_6r4s4"]
+[ext_resource type="FontFile" uid="uid://cjj7cfw4lp3ck" path="res://28 Days Later.ttf" id="8_7trrv"]
 
 [sub_resource type="Curve2D" id="Curve2D_uce60"]
 _data = {
@@ -243,7 +244,7 @@ unique_name_in_owner = true
 position = Vector2(-71, -55)
 rotation = -0.00579144
 
-[node name="Timer" type="Timer" parent="."]
+[node name="TimerVida" type="Timer" parent="."]
 autostart = true
 
 [node name="pause" parent="." instance=ExtResource("5_uce60")]
@@ -263,6 +264,18 @@ scale = Vector2(7, 7)
 tile_map_data = PackedByteArray("AAAHAAcAAAAJAAIAAAANAAIAAAAKAAEAAAA=")
 tile_set = SubResource("TileSet_nrou7")
 
+[node name="CountdownTimer" type="Timer" parent="."]
+autostart = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer"]
+offset_right = 40.0
+offset_bottom = 23.0
+theme_override_fonts/font = ExtResource("8_7trrv")
+theme_override_font_sizes/font_size = 50
+
 [connection signal="health_depleted" from="Player" to="pause" method="_on_player_health_depleted"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="timeout" from="Timer" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerVida" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="TimerVida" to="Player" method="_on_timer_timeout"]
+[connection signal="timeout" from="CountdownTimer" to="." method="_on_CountdownTimer_timeout"]
