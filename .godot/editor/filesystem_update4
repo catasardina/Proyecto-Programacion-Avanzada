@@ -5,5 +5,3 @@ res://svgame.tscn
 res://GameOver.tscn
 res://VictoryScreen.tscn
 res://characters/enemigo/slime.tscn
-res://gun.gd
-res://mob.gd
