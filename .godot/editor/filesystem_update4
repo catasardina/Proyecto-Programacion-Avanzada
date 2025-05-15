@@ -1,7 +1,7 @@
-res://characters/enemigo/slime.tscn
 res://player.tscn
 res://mob.tscn
 res://menu.tscn
 res://svgame.tscn
 res://GameOver.tscn
 res://VictoryScreen.tscn
+res://characters/enemigo/slime.tscn
