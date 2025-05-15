@@ -1,3 +1,6 @@
+AnimatedSprite2D
+CharacterBody2D
+Node
 Label
 Button
 VBoxContainer
@@ -6,9 +9,6 @@ CanvasLayer
 Panel
 Timer
 Control
-Node
 TileMapLayer
 ParallaxLayer
 ParallaxBackground
-Parallax2D
-TileMap

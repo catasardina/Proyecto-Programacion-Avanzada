@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dvgfmy6vtvjji"
-path="res://.godot/imported/slime_body.png-0d515f9e912a0d42a36c28f828394f6a.ctex"
+uid="uid://cckklwdpq0wt0"
+path="res://.godot/imported/movEnemigoIzquierda.png-4790995c03677cf007967ace10a7b6e6.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://characters/slime/slime_body.png"
-dest_files=["res://.godot/imported/slime_body.png-0d515f9e912a0d42a36c28f828394f6a.ctex"]
+source_file="res://characters/enemigo/movEnemigoIzquierda.png"
+dest_files=["res://.godot/imported/movEnemigoIzquierda.png-4790995c03677cf007967ace10a7b6e6.ctex"]
 
 [params]
 
