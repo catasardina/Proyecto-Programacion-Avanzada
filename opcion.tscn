@@ -1,8 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://mlgv1nxefygm"]
+[gd_scene load_steps=10 format=3 uid="uid://mlgv1nxefygm"]
 
 [ext_resource type="Texture2D" uid="uid://bcknecosj581f" path="res://addons/c3e0093c-7a14-4904-83af-b9c722dfa83d.png" id="1_fwlhr"]
 [ext_resource type="Script" uid="uid://sfalnqy0qr6i" path="res://opcion.gd" id="2_fwlhr"]
 [ext_resource type="PackedScene" uid="uid://dt1s3iauvikfq" path="res://sonido.tscn" id="3_hgpht"]
+[ext_resource type="FontFile" uid="uid://cjj7cfw4lp3ck" path="res://28 Days Later.ttf" id="3_q5kjn"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_lti8b"]
 bg_color = Color(0, 0.2, 0, 1)
@@ -52,6 +53,7 @@ offset_left = 1141.0
 offset_top = 50.0
 offset_right = 1813.0
 offset_bottom = 133.0
+theme_override_fonts/font = ExtResource("3_q5kjn")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_lti8b")
 text = "RESOLUCION"
@@ -62,6 +64,7 @@ offset_left = 106.0
 offset_top = 64.0
 offset_right = 778.0
 offset_bottom = 147.0
+theme_override_fonts/font = ExtResource("3_q5kjn")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_mae5d")
 text = "PANTALLA COMPLETA"
@@ -93,6 +96,7 @@ offset_left = 577.0
 offset_top = 556.0
 offset_right = 1249.0
 offset_bottom = 639.0
+theme_override_fonts/font = ExtResource("3_q5kjn")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_4hy44")
 text = "ATRAS"
@@ -113,6 +117,7 @@ grow_vertical = 2
 
 [node name="volumen" type="Label" parent="volumen2"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("3_q5kjn")
 theme_override_font_sizes/font_size = 60
 theme_override_styles/normal = SubResource("StyleBoxFlat_ouk20")
 text = "VOLUMEN"

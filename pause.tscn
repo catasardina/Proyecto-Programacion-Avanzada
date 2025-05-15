@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://bsk2gbkj4yplw"]
+[gd_scene load_steps=4 format=3 uid="uid://bsk2gbkj4yplw"]
 
 [ext_resource type="Script" uid="uid://bfyuxmilx6xtl" path="res://PAUSA.gd" id="1_45vjg"]
+[ext_resource type="FontFile" uid="uid://cjj7cfw4lp3ck" path="res://28 Days Later.ttf" id="2_6eyaj"]
 [ext_resource type="PackedScene" uid="uid://dp3f6pcqev54l" path="res://songs/bocina_principal.tscn" id="2_aq7p1"]
 
 [node name="pause" type="CanvasLayer"]
@@ -25,6 +26,7 @@ offset_left = -20.0
 offset_right = 20.0
 offset_bottom = 23.0
 grow_horizontal = 2
+theme_override_fonts/font = ExtResource("2_6eyaj")
 theme_override_font_sizes/font_size = 150
 text = "PAUSE"
 
@@ -34,6 +36,7 @@ offset_left = 1396.0
 offset_top = 467.0
 offset_right = 1654.0
 offset_bottom = 612.0
+theme_override_fonts/font = ExtResource("2_6eyaj")
 theme_override_font_sizes/font_size = 100
 text = "Salir"
 
@@ -41,6 +44,7 @@ text = "Salir"
 visible = false
 offset_right = 8.0
 offset_bottom = 8.0
+theme_override_fonts/font = ExtResource("2_6eyaj")
 
 [node name="BocinaPrincipal" parent="." instance=ExtResource("2_aq7p1")]
 
